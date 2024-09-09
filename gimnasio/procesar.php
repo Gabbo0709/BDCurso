@@ -10,11 +10,12 @@
     // Recibir los datos del formulario
     $sucursal = $_POST["sucursal"];
     $direccion = $_POST["direccion"];
+    $contacto = $_POST["contacto"];
     $apertura = $_POST["apertura"];
     $cierre = $_POST["cierre"];
 
     // Insertar los datos en la base de datos
-    $sql = "INSERT INTO sucursales (sucursal, direccion, apertura, cierre) VALUES ('$sucursal', '$direccion', '$apertura', '$cierre')";
+    $sql = "INSERT INTO sucursales (sucursal, direccion, apertura, cierre, telefono) VALUES ('$sucursal', '$direccion', '$apertura', '$cierre', '$contacto')";
     if ($conexion->query($sql) === TRUE) {
         echo "<script>alert('Registro guardado correctamente');</script>";
     } else {
