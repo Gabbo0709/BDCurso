@@ -1,5 +1,5 @@
 <?php
-    $conexion = new mysqli("localhost", "root", "", "gimnasio");
+    $conexion = new mysqli("localhost", "root", "", "db_gimnasio");
 
     // Verificar la conexión
     if ($conexion->connect_error) {

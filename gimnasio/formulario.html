@@ -26,8 +26,8 @@
             </div>
         </div>
     </nav>
-    <div class="container w-25 w-sm-75">
-        <div class="container align-middle">
+    <div class="container w-25 w-sm-75 align-middle">
+        <div class="container  ">
             <div class="card mt-5">
                 <h1 class="display-5 text-center mt-3 fs-2">Formulario de registro de nueva sucursal.</h1>
                 <div class="card-body">
@@ -41,6 +41,10 @@
                             <div class="mb-3 form-group">
                                 <label for="direccion" class="form-label fs-4">Dirección</label>
                                 <input type="text" class="form-control" id="direccion" name="direccion" required>
+                            </div>
+                            <div class="mb-3 form-group">
+                                <label for="ciudad" class="form-label fs-4">Teléfono de contacto</label>
+                                <input type="text" class="form-control" id="ciudad" name="ciudad" pattern="^\d{3}-\d{3}-\d{4}$|^\d{2}-\d{4}-\d{4}$" placeholder="000-000-0000" required>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="horario" class="form-label fs-4">Horario</label>
