@@ -33,10 +33,10 @@
                 <div class="card-body">
                     <hr>
                     <div class="container mt-3">
-                        <form action="procesar.php" method="post">
+                        <form action="procesar.php" target="_blank" method="post">
                             <div class="mb-3 form-group">
                                 <label for="sucursal" class="form-label fs-4">Sucursal</label>
-                                <input type="text" class="form-control" id="sucursal" name="nombreSucursal" required>
+                                <input type="text" class="form-control" id="sucursal" name="sucursal" required>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="direccion" class="form-label fs-4">Dirección</label>
@@ -85,21 +85,21 @@
             if (this.checked) {
                 document.getElementById("apertura").value = "00:00";
                 document.getElementById("cierre").value = "23:59";
-                document.getElementById("apertura").disabled = true;
-                document.getElementById("cierre").disabled = true;
+                document.getElementById("apertura").setAttribute("readonly", "");
+                document.getElementById("cierre").setAttribute("readonly", "");
                 document.getElementById("apertura").min = "00:00";
                 document.getElementById("cierre").max = "23:59";
             } else {
-                document.getElementById("apertura").disabled = false;
-                document.getElementById("cierre").disabled = false;
+                document.getElementById("apertura").readonly = false;
+                document.getElementById("cierre").readonly = false;
                 document.getElementById("apertura").min = "05:00";
                 document.getElementById("cierre").max = "00:00";
             }
         });
         document.getElementById("limpiar").addEventListener("click", function () {
             if (document.getElementById("veinticuatroHoras").checked) {
-                document.getElementById("apertura").disabled = false;
-                document.getElementById("cierre").disabled = false;
+                document.getElementById("apertura").removeAttribute("readonly");
+                document.getElementById("cierre").removeAttribute("readonly");
             }
         });
     </script>
