@@ -8,8 +8,8 @@ CREATE TABLE sucursal(
     id_sucursal INT AUTO_INCREMENT PRIMARY KEY,
     sucursal VARCHAR(50) NOT NULL,
     direccion VARCHAR(100) NOT NULL,
-    apertura DATE NOT NULL,
-    cierre DATE NOT NULL,
+    apertura TIME NOT NULL,
+    cierre TIME NOT NULL,
     telefono VARCHAR(10) NOT NULL
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE sueldo (
     id_sueldo INT AUTO_INCREMENT PRIMARY KEY,
     sueldo DECIMAL(5,2) NOT NULL,
     id_tipo_empleado INT NOT NULL,
-    FOREIGN KEY (id_tipo_empleado) REFERENCES tipo_empleado(idtipo_empleado)
+    FOREIGN KEY (id_tipo_empleado) REFERENCES tipo_empleado(id_tipo_empleado)
 );
 
 -- Tabla que almacena la informacion de las horas trabajadas por los empleados
@@ -68,7 +68,7 @@ CREATE TABLE nomina (
     id_horas_trabajadas INT NOT NULL,
     total DECIMAL(5,2) NOT NULL,
     fecha_nomina DATE NOT NULL,
-    FOREIGN KEY (id_sueldo) REFERENCES suelda(id_suelda),
+    FOREIGN KEY (id_sueldo) REFERENCES sueldo(id_sueldo),
     FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado),
     FOREIGN KEY (id_horas_trabajadas) REFERENCES horas_trabajadas(id_horas_trabajadas)
 );
@@ -96,9 +96,9 @@ CREATE TABLE suscripcion(
 
 -- Tabla que almacena la informacion de los productos
 CREATE TABLE producto(
-    id_proyecto VARCHAR(100) PRIMARY KEY NOT NULL,
+    id_producto VARCHAR(100) PRIMARY KEY NOT NULL,
     nombre VARCHAR(50) NOT NULL,
-    costo DECIMAL(4, 2)
+    costo DECIMAL(4, 2),
     detalle_producto VARCHAR(60)
 );
 
@@ -110,7 +110,7 @@ CREATE TABLE inventario(
     stock INT NOT NULL DEFAULT 0,
     FOREIGN KEY (id_sucursal) REFERENCES sucursal(id_sucursal),
     FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
-)
+);
 
 -- Tabla que almacena la informacion de los clientes
 CREATE TABLE cliente(
@@ -151,7 +151,7 @@ CREATE TABLE clase(
     id_clase INT AUTO_INCREMENT PRIMARY KEY,
     id_empleado INT NOT NULL,
     descripcion VARCHAR(100) NOT NULL,
-    costo DECIMAL(4, 2) NOT NULL,
+    costo DECIMAL(4, 2) NOT NULL
 );
 
 -- Tabla que almacena la informacion de los detalles de las clases
